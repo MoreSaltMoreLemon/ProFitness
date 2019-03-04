@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  sex: MyString
+  height: 1
+  name: MyString
+  avatar_image: MyString
+  birthdate: 2019-03-04 09:50:55
+  metric: false
+
+two:
+  user_id: 1
+  sex: MyString
+  height: 1
+  name: MyString
+  avatar_image: MyString
+  birthdate: 2019-03-04 09:50:55
+  metric: false
