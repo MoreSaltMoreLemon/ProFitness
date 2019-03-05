@@ -3,15 +3,17 @@
 <ul>
   <% @workout.workout_sets.each do |ws| %>
     <li>
-      <%= content_tag :p, "#{ws.exercise.name.pluralize(ws.reps)}: #{ws.reps} reps of #{ws.weight} "%>
+      <%= content_tag :p, "#{ws.exercise.name.titleize.pluralize(ws.reps)}: #{ws.reps} reps of #{ws.weight} "%>
       <%= button_to "X", ws, method: :delete%>
     </li>
   <% end %>
 </ul>
 <%= form_for @workout.workout_sets.build do |set| %>
   <%= set.hidden_field :workout_id, value: @workout.id  %>
-  <%= set.collection_select :exercise_id, Exercise.all.sort_by {|ex| ex.name}, :id, :name %>
-  <%= set.number_field :reps %>
-  <%= set.number_field :weight %>
+  Exercise: <%= set.collection_select :exercise_id, Exercise.all.sort_by {|ex| ex.name}, :id, :name %>
+  Reps: <%= set.number_field :reps %>
+  Weight: <%= set.number_field :weight %>
   <%= set.submit 'Add Set' %>
 <% end %>
+<%# byebug %>
+<%= link_to "Submit Form", user_path(@workout.user)%>

@@ -66,8 +66,9 @@ footer {
 
 #banner {
   height: auto;
-  width: 100%;
+  width: 50%;
   max-height: 300px;
+  align-self: center;
 }
 
 h2 {
@@ -75,10 +76,6 @@ h2 {
   text-align: center;
 }
 
-body {
-  height: 800px;
-  background-color: gray;
-}
 
 
 
