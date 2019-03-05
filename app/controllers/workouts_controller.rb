@@ -5,13 +5,14 @@ class WorkoutsController < ApplicationController
   def index
     @workouts = Workout.all
   end
-
+  
   def new
     @workout = Workout.new
   end
 
-  # def show
-  # end
+  def show
+    @set = WorkoutSet.new(workout: @workout)
+  end
 
   def create
     @workout = Workout.new(workout_params)
@@ -27,6 +28,7 @@ class WorkoutsController < ApplicationController
   end
 
   def update
+    byebug
     @workout = Workout.update(workout_params)
     if @workout.valid?
       @workout.save

@@ -4,4 +4,8 @@ class Workout < ApplicationRecord
   has_many :exercises, through: :workout_sets
 
   validates :date, presence: true
+
+  def show_date
+    self.date.strftime("%m/%d/%Y")
+  end
 end
