@@ -28,7 +28,7 @@
               </li>
             <% end %>
           </ul>
-          
+
         </div>
       </div>
       <div class="column is-one-quarter"></div>
@@ -39,10 +39,10 @@
 <section class="section add-workout">
   <div class="container">
     <h2 class="is-error"><%= flash[:error] if flash[:error] %></h2>
-    <%= form_for @workout.workout_sets.build do |set| %>          
+    <%= form_for @workout.workout_sets.build do |set| %>
       <div class="field has-addons">
         <div class="field">
-          <p class="control select has-icons-left is-focused has-icons-right">
+          <p class="control select has-icons-left is-primary has-icons-right">
             <%= set.hidden_field :workout_id, value: @workout.id  %>
             <%= set.collection_select :exercise_id, Exercise.all.sort_by {|ex| ex.name}, :id, :name, class: "select is-focused"%>
           </p>
@@ -74,4 +74,4 @@
       </div>
     <% end %>
   </div>
-</section>  
+</section>
