@@ -9,7 +9,6 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      byebug
       flash[:error] = "Invalid Login"
       redirect_to login_path
     end
