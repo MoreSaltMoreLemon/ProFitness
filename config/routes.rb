@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   delete    '/login', to: 'sessions#destroy', as: '/logout'
   get       '/users/graph', to: 'users#graph'
   get       '/exercises/search', to: 'exercises#search'
-  get       '/contact', to: 'application#contact'
+  get       '/contact', to: 'pages#contact'
+  get       '/about', to: 'pages#about'
   resources :categories
   resources :exercises
   resources :workouts
