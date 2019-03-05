@@ -4,7 +4,7 @@
   <% @workout.workout_sets.each do |ws| %>
     <li>
       <%= content_tag :p, "#{ws.exercise.name.pluralize(ws.reps)}: #{ws.reps} reps of #{ws.weight} "%>
-      <%= button_to "Delete", ws, method: :delete%>
+      <%= button_to "X", ws, method: :delete%>
     </li>
   <% end %>
 </ul>
