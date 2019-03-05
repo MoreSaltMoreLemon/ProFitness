@@ -1,0 +1,6 @@
+<%= @workout.date %><br>
+<% @workout.workout_sets.each do |workout_set| %>
+<%= workout_set.reps %>
+<%= workout_set.weight %>
+<%= workout_set.exercise.name %>
+<% end %>

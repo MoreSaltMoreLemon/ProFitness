@@ -1,0 +1,4 @@
+<%= @category.name %><br>
+<% @category.exercises.each do |exercise| %>
+<%= link_to exercise.name, exercise %>
+<% end %>
