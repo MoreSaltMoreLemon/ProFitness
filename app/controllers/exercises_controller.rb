@@ -1,6 +1,12 @@
 class ExercisesController < ApplicationController
   before_action :verify_login
-  before_action :set_exercise, only: [:edit, :show, :update, :destroy]
+  before_action :set_exercise, only: [:edit, :show, :update, :destroy, :search]
+
+
+
+  def search
+    redirect_to @exercise
+  end
 
   def index
     @exercises = Exercise.all

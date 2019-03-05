@@ -10,14 +10,19 @@
     </div>
   </div>
 </section>
-<%# img(<%= path_to_image @exercise.hero_image %>)
+
+<%= form_tag '/exercises/search', method: 'GET' do %>
+  <%= select_tag 'id', options_from_collection_for_select(Exercise.all, "id", "name") %>
+  <%= submit_tag "Find Exercise" %>
+<% end %>
+
 <h1 class="title">
-  <%= @exercise.name.capitalize %><br>
+  <%= @exercise.name.titleize %><br>
 </h1>
 <%#= image_tag @exercise.hero_image, id: "banner"  %><br>
-<strong>Description</strong><br>
-<%= @exercise.description.capitalize %><br>
 <strong>Instruction</strong><br>
 <%= @exercise.instruction.capitalize %><br>
+<strong>Description</strong><br>
+<%= @exercise.description.capitalize %><br>
 <strong>Category Type</strong><br>
 <%= @exercise.category.name.capitalize %>
