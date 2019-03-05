@@ -15,10 +15,9 @@ exercises = {"chest" => ["bench press", "dumbell fly", "incline press"],
   exercises.each_pair do |name, exercises|
     category = Category.create(name: name)
     exercises.each do |exercise_name|
-      category.exercises.build(name: exercise_name,
-                             description: Faker::Lorem.sentence(10),
-                             instruction: Faker::Lorem.sentence(10),
-                             hero_image: "exercises/#{exercise_name.split(" ").join("-")}")
+      # byebug
+    exercise = category.exercises.build(name: exercise_name, description: Faker::Lorem.sentence(10), instruction: Faker::Lorem.sentence(10), hero_image: "exercises/#{exercise_name.split(" ").join("-")}")
+    exercise.save
     end
   end
 
