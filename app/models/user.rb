@@ -3,4 +3,8 @@ class User < ApplicationRecord
   has_many :histories
   has_many :workouts
   has_many :workout_sets, through: :workouts
+
+  validates :username, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
+  validates :password, presence: true
 end
