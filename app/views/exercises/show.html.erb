@@ -11,16 +11,19 @@
   </div>
 </div>
 
-<span class="columns">
-  <span class="column has-text-centered">
-    <%= form_tag '/exercises/search', method: 'GET' do %>
-      <span class="select">
-        <%= select_tag 'id', options_from_collection_for_select(Exercise.all, "id", "name", @exercise.id)%>
-      </span>
-      <%= submit_tag "Find Exercise", class: "button" %>
-    <% end %>
-  </span>
-</span>
+<section class="section">
+  <div class="container">
+    <h1>Choose Your Exercise</h1>
+  <%= form_tag '/exercises/search', method: 'GET' do %>
+      <div class="field has-addons">
+        <div class="select is-primary">
+            <%= select_tag 'id', options_from_collection_for_select(Exercise.all, "id", "name", @exercise.id)%>
+            </div>
+            <%= submit_tag "Find Exercise", class: "button is-primary" %>
+            <% end %>
+      </div>
+    </div>
+</section>
 
 
 <section class="section">
@@ -35,6 +38,10 @@
     <%= @exercise.description.capitalize %><br>
     <strong>Category Type</strong><br>
     <%= @exercise.category.name.capitalize %>
-
+    <br>
+    <br>
   </div>
 </section>
+
+<br>
+<br>
