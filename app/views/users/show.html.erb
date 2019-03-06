@@ -1,39 +1,20 @@
-<header>
-  <div class="authenticate">
-    <a href="#">Logout</a>
-    <a href="#"></a>
-  </div>
-  <a href="/" id="logo"><%= image_tag "logo/logo.png" %></a>
-</header>
+<h3>User Name</h3>
+<%= @user.profile.name %><br>
+<h3>User Email</h3>
+<%= @user.email %><br>
+
 <%= image_tag "splash/1200-woman-lifting-heavy-weights.jpg", id: "banner" %>
 <h2>Profile Info</h2>
-<ul>
+<%= link_to "Make Another Workout!", new_workout_path %>
+
 <h3>Your Past Workouts</h3>
+<ul>
   <% @user.workout_sets.each do |set| %>
-  <li>
-  <h5>Type of Workout: </h5><%= set.exercise.name.capitalize %>
-  <h5>Number of Reps: </h5><%= set.reps %>
-  <h5>Weight: </h5><%= set.weight %> kgs
-  <h5>Workout Date: </h5><%= set.workout.date %>
+    <li>
+      <h5>Type of Workout: </h5><%= set.exercise.name.capitalize %>
+      <h5>Number of Reps: </h5><%= set.reps %>
+      <h5>Weight: </h5><%= set.weight %> kgs
+      <h5>Workout Date: </h5><%= set.workout.date %>
   </li>
   <% end %>
 </ul>
-
-<br>
-<br>
-<br>
-<br>
-
-<%= link_to "Make Another Workout!", new_workout_path %>
-
-<h3>User Name</h3>
-  <%= @user.username %><br>
-  <h3>User Email</h3>
-  <%= @user.email %><br>
-
-  <footer>
-    <div class="contact">
-      <a href="#">Contact</a>
-      <a href="#">Copyright</a>
-    </div>
-  </footer>

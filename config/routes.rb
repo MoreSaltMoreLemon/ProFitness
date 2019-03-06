@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   root 'application#splash'
+  get       '/login', to: 'sessions#new'
+  post      '/login', to: 'sessions#create'
+  delete    '/login', to: 'sessions#destroy', as: '/logout'
   resources :categories
   resources :exercises
   resources :workouts
