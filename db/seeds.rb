@@ -18,7 +18,7 @@ exercises = {"chest" => ["bench press", "dumbell fly", "incline press"],
       category.exercises.build(name: exercise_name,
                              description: Faker::Lorem.sentence(10),
                              instruction: Faker::Lorem.sentence(10),
-                             hero_image: Faker::LoremFlickr.image("50x60", ['sports', 'fitness'], true)).save
+                             hero_image: "exercises/#{exercise_name.split(" ").join("-")}")
     end
   end
 
@@ -31,19 +31,14 @@ exercises = {"chest" => ["bench press", "dumbell fly", "incline press"],
                       email: Faker::Internet.unique.email(user_name),
                       actual_password: pwd,
                       password: pwd)
-  profile = user.build_profile( sex: Faker::Gender.type,
-                      height: Faker::Number.between(1, 2.5),
-                      name: user_name,
-                      avatar_image: "no image",
-                      birthdate: Faker::Date.birthday(18, 65),
-                      metric: Faker::Boolean.boolean)
+  profile = user.build_profile( name: user_name,
+                                height: Faker::Number.between(1, 2.5),
+                                starting_weight: Faker::Number.between(60, 120),
+                                avatar_image: "no image",
+                                age: Faker::Number.between(18, 75),
+                                metric: Faker::Boolean.boolean)
   profile.save
-  10.times do
-    history = user.histories.build(weight: Faker::Number.between(60, 120),
-                       date: Faker::Date.forward(2))
-    history.save
 
-  end
 
   10.times do
     workout = user.workouts.build(date: Faker::Date.forward(2))
@@ -56,3 +51,10 @@ exercises = {"chest" => ["bench press", "dumbell fly", "incline press"],
     end
   end
 end
+
+  # 10.times do
+  #   history = user.histories.build(weight: Faker::Number.between(60, 120),
+  #                      date: Faker::Date.forward(2))
+  #   history.save
+
+  # end

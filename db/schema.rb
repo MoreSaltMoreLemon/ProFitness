@@ -38,11 +38,11 @@ ActiveRecord::Schema.define(version: 2019_03_04_180817) do
 
   create_table "profiles", force: :cascade do |t|
     t.integer "user_id"
-    t.string "sex"
+    t.integer "starting_weight"
     t.integer "height"
     t.string "name"
     t.string "avatar_image"
-    t.datetime "birthdate"
+    t.integer "age"
     t.boolean "metric"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2019_03_04_180817) do
   create_table "workouts", force: :cascade do |t|
     t.datetime "date"
     t.integer "user_id"
+    t.integer "user_weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
