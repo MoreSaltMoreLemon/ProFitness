@@ -47,16 +47,12 @@ class WorkoutsController < ApplicationController
   private
 
   def workout_params
-    params.require(:workout).permit(:date, :user_id)
+    params.require(:workout).permit(:date, :user_id, :user_weight)
   end
 
   def set_workout
     @workout = Workout.find(params[:id])
-  end
-
-  def verify_login
-    redirect_to login_path unless logged_in?
-  end    
+  end  
   
       
 end
