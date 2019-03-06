@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   helper_method :logged_in?
+  helper_method :verify_login
 
   def splash
     render file: 'applications/splash'
@@ -12,5 +13,9 @@ class ApplicationController < ActionController::Base
   def set_current_user
     @current_user = User.find_by(id: session[:user_id])
   end
+
+  def verify_login
+    redirect_to login_path unless logged_in?
+  end 
 
 end
