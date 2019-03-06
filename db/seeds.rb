@@ -2,6 +2,7 @@ User.destroy_all
 History.destroy_all
 Profile.destroy_all
 Workout.destroy_all
+Exercise.destroy_all
 WorkoutSet.destroy_all
 Category.destroy_all
 
@@ -25,13 +26,15 @@ exercises = {"chest" => ["bench press", "dumbell fly", "incline press"],
 
 10.times do
   user_name = Faker::FunnyName.two_word_name
+  pwd = Faker::Internet.unique.password
   user = User.create( username: Faker::Internet.unique.username(user_name),
                       email: Faker::Internet.unique.email(user_name),
-                      password: Faker::Internet.unique.password)
+                      actual_password: pwd,
+                      password: pwd)
   profile = user.build_profile( sex: Faker::Gender.type,
                       height: Faker::Number.between(1, 2.5),
                       name: user_name,
-                      avatar_image: Faker::LoremFlickr.image("50x60", ['sports', 'fitness'], true),
+                      avatar_image: "no image",
                       birthdate: Faker::Date.birthday(18, 65),
                       metric: Faker::Boolean.boolean)
   profile.save

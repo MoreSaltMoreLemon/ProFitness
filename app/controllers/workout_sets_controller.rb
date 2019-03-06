@@ -1,4 +1,5 @@
 class WorkoutSetsController < ApplicationController
+  before_action :verify_login
   def show
   end
 

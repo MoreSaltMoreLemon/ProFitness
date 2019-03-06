@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 class User < ApplicationRecord
   has_one :profile
   has_many :histories
@@ -7,4 +9,6 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true
+
+  has_secure_password
 end

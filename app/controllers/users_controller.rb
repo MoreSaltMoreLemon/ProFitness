@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_action :verify_login, only: [:edit, :update, :destroy]
   before_action :set_user, only: [:edit, :show, :update, :destroy]
 
   def index
@@ -11,10 +11,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    
+    @user.build_profile unless @user.profile
   end
 
   def create
+    # byebug
     @user = User.new(user_params)
     if @user.valid?
       @user.save
@@ -45,7 +46,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:username, :password, :password_confirmation, :email)
   end
 
   def set_user

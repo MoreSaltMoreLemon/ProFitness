@@ -1,5 +1,5 @@
 class WorkoutsController < ApplicationController
-
+  before_action :verify_login
   before_action :set_workout, only: [:edit, :show, :update, :destroy]
 
   def index
@@ -18,9 +18,10 @@ class WorkoutsController < ApplicationController
     @workout = Workout.new(workout_params)
     if @workout.valid?
       @workout.save
-      redirect_to @workout
+      redirect_to workout_path(@workout)
     else
-      render :new
+      byebug
+      render user_path(@current_user)
     end
   end
 
@@ -46,10 +47,16 @@ class WorkoutsController < ApplicationController
   private
 
   def workout_params
-    params.require(:workout).permit(:name)
+    params.require(:workout).permit(:date, :user_id)
   end
 
   def set_workout
     @workout = Workout.find(params[:id])
   end
+
+  def verify_login
+    redirect_to login_path unless logged_in?
+  end    
+  
+      
 end

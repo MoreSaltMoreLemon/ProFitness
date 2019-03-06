@@ -1,4 +1,5 @@
 class ExercisesController < ApplicationController
+  before_action :verify_login
   before_action :set_exercise, only: [:edit, :show, :update, :destroy]
 
   def index

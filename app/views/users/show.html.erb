@@ -1,11 +1,15 @@
+<%= image_tag "splash/1200-woman-lifting-heavy-weights.jpg", id: "banner" %>
 <h3>User Name</h3>
 <%= @user.profile.name %><br>
 <h3>User Email</h3>
 <%= @user.email %><br>
 
-<%= image_tag "splash/1200-woman-lifting-heavy-weights.jpg", id: "banner" %>
 <h2>Profile Info</h2>
-<%= link_to "Make Another Workout!", new_workout_path %>
+<%= form_for Workout.new do |w| %>
+  <%= w.hidden_field :user_id, value: @user.id %>
+  <%= w.date_field :date %><br>
+  <%= w.submit %>
+<% end %>
 
 <h3>Your Past Workouts</h3>
 <ul>
