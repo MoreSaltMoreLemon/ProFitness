@@ -1,3 +1,8 @@
-<% @exercises.each do |exercise| %>
-<%= link_to exercise.name, exercise %>
-<% end %>
+<h1>Choose Your Exercise</h1>
+<ul>
+  <% @exercises.each do |exercise| %>
+  <li>
+  <%= link_to exercise.name.capitalize, exercise %>
+  </li>
+  <% end %>
+</ul>
