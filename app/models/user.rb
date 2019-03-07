@@ -11,4 +11,8 @@ class User < ApplicationRecord
   validates :password, presence: true
 
   has_secure_password
+
+  def personal_stats
+  end
+  
 end

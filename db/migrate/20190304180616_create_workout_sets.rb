@@ -4,7 +4,7 @@ class CreateWorkoutSets < ActiveRecord::Migration[5.2]
       t.integer :workout_id
       t.integer :exercise_id
       t.integer :reps
-      t.integer :weight
+      t.float :weight
 
       t.timestamps
     end

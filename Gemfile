@@ -29,6 +29,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem "bulma-rails", "~> 0.7.4"
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
+# gem 'googlecharts', '~> 1.6', '>= 1.6.12'
+gem "chartkick"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

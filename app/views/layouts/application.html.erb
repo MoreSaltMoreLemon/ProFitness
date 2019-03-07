@@ -5,26 +5,52 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': true %>
+    <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
   </head>
 
   <body>
     <header>
-      <div class="authenticate">
-      <% if logged_in? %>
-        <%= link_to "Logout", logout_path , method: :delete%>
-      <% else %>
-        <%= link_to "Login", login_path%>
-        <%= link_to "Sign Up", new_user_path %>
-      <% end %>
-      </div>
-      <a href="/" id="logo"><%= image_tag "logo/logo.png" %></a>
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://bulma.io">
+            <a href="/" id="logo"><%= image_tag "logo/logo.png" %></a>
+          </a>
+          <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">User</a>
+              <div class="navbar-dropdown">
+                <% if logged_in? %>
+                  <%= link_to "Home", user_path(set_current_user) , class: "navbar-item"%>
+                  <hr class="navbar-divider">
+                  <%= link_to "Profile", profile_path(set_current_user) , class: "navbar-item"%>
+                  <hr class="navbar-divider">
+                  <%= link_to "Logout", logout_path , method: :delete, class: "navbar-item"%>
+                <% else %>
+                <%= link_to "Login", login_path, class: "navbar-item"%>
+                <hr class="navbar-divider">
+                <%= link_to "Sign Up", new_user_path, class: "navbar-item"%>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
     </header>
+
     <%= yield %>
+
     <footer>
       <div class="contact">
         <a href="#">Contact</a>
@@ -33,4 +59,6 @@
     </footer>
   </body>
   
+
+
 </html>

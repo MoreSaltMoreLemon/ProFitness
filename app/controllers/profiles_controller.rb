@@ -6,12 +6,14 @@ class ProfilesController < ApplicationController
   helper_method :convert_to_meters
   helper_method :convert_to_feet
   include ProfilesHelper
+  
   def new
     @profile = Profile.new(user: @current_user)
   end
 
-  # def show
-  # end
+  def show
+    @profile = @current_user.profile
+  end
 
   def create
     byebug
