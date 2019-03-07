@@ -12,7 +12,7 @@
 
 <h1>Past Workouts</h1>
   <ul>
-    <% @user.workouts[0..4].each do |workout| %>
+    <% @user.workouts.sort_by(&:date).reverse[0..4].each do |workout| %>
       <li>
         <h2><%= workout.date.strftime("%A, %b %d") %></h2>
         <ul>

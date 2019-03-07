@@ -25,7 +25,7 @@ exercises = {"chest" => [ { name: "bench press", instruction: "The barbell bench
                           { name: "wide-grip pull-up", instruction:"The wide-grip pullup is an advanced bodyweight exercise that improves strength in the back, shoulders, and biceps. The wide-grip position emphasizes the back by reducing resistance on the biceps and forearms. Grab a pullup bar with your palms facing away from your body, and your hands shoulder-width apart."} ],
               "core" => [ { name: "sit up", instruction:"An exercise in which a person lies flat on the back, lifts the torso to a sitting position, and then lies flat again without changing the position of the legs: formerly done with the legs straight but now usually done with the knees bent."},
                           { name: "plank", instruction:"Planking (no, not that bizarre craze) is a simple but effective bodyweight exercise. Holding the body (light as a feather) stiff as a board develops strength primarily in the core—the muscles that connect the upper and lower body—as well as the shoulders, arms, and glutes."},
-                          { name: "crunch", instruction:"A crunch begins with lying face up on the floor with knees bent and feet planted on the ground. The movement begins by curling the shoulders towards the pelvis. The hands can be behind or beside the neck or crossed over the chest."} ] } 
+                          { name: "crunch", instruction:"A crunch begins with lying face up on the floor with knees bent and feet planted on the ground. The movement begins by curling the shoulders towards the pelvis. The hands can be behind or beside the neck or crossed over the chest."} ] }
 
   exercises.each_pair do |name, exercises|
     category = Category.create(name: name)
