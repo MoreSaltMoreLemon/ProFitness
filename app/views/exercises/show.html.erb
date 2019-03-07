@@ -1,8 +1,10 @@
-<h3>Exercise Name</h3>
-<%= @exercise.name.capitalize %><br>
-<h3>Description</h3>
+<h1 class="title">
+  <%= @exercise.name.capitalize %><br>
+</h1>
+<%= image_tag @exercise.hero_image, id: "banner"  %>
+<strong>Description</strong><br>
 <%= @exercise.description.capitalize %><br>
-<h3>Instruction</h3>
+<strong>Instruction</strong><br>
 <%= @exercise.instruction.capitalize %><br>
-<h3>Category Type</h3>
+<strong>Category Type</strong><br>
 <%= @exercise.category.name.capitalize %>
