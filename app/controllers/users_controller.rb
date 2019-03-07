@@ -18,12 +18,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    # byebug
     @user = User.new(user_params)
     if @user.valid?
       @user.save
-      redirect_to @user
+      session[:user_id] = @user.id
+      redirect_to new_profile_path(@user)
     else
+      # byebug
+      flash[:error] = "Invalid Input. Please Re-enter your information."
+      flash[:password] = @user.errors.full_messages_for(:password).join(". ") if @user.errors[:password]
+      flash[:username] = @user.errors.full_messages_for(:username).join(". ") if @user.errors[:username]
+      flash[:email] = @user.errors.full_messages_for(:email).join(". ") if @user.errors[:email]
       render :new
     end
   end

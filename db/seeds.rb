@@ -36,11 +36,11 @@ exercises = {"chest" => [ { name: "bench press", instruction: "The barbell bench
     end
   end
 
-
+# byebug
 user = User.create( username: "user",
-email: Faker::Internet.unique.email("user"),
-actual_password: "password",
-password: "password")
+                    email: Faker::Internet.unique.email("user"),
+                    actual_password: "passw0rd",
+                    password: "passw0rd")
 profile = user.build_profile( name: "user",
           height: Faker::Number.between(1, 2.5),
           starting_weight: Faker::Number.between(60, 120),
@@ -51,7 +51,8 @@ profile.save
 
 
 40.times do
-  workout = user.workouts.build(date: Faker::Date.between(1.year.ago, Date.today), user_weight: Faker::Number.between(60, 120))
+  workout = user.workouts.build(date: Faker::Date.between(1.year.ago, Date.today), 
+                                user_weight: Faker::Number.between(60, 120))
   workout.save
   10.times do
     sets = workout.workout_sets.build(exercise: Exercise.all.sample,
@@ -77,7 +78,8 @@ end
 
 
   10.times do
-    workout = user.workouts.build(date: Faker::Date.forward(2))
+    workout = user.workouts.build(date: Faker::Date.between(1.year.ago, Date.today),
+                                  user_weight: Faker::Number.between(60, 120))
     workout.save
     10.times do
       sets = workout.workout_sets.build(exercise: Exercise.all.sample,

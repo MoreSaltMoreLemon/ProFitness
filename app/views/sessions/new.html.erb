@@ -1,11 +1,41 @@
 <%= form_tag '/login' do %>
-  <div class="tile is-parent is-3">
-    <div class='tile is-child is-medium'>
-      <%= label_tag :username %>
-      <%= text_field_tag :username, nil, class: "input is-focused" %>
-      <%= label_tag :password %>
-      <%= password_field_tag :password, nil, class: "input is-focused" %>
-      <%= submit_tag 'Login' %>
+  <div class="field is-horizontal">
+    <%= content_tag(:h3, flash[:name]) if flash[:name] %>
+    <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <%= label_tag :username, nil, class: "label" %>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control">
+            <%= text_field_tag :username, nil, class: "input is-focused #{"is-danger" if flash[:name]}" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= content_tag(:h3, flash[:name]) if flash[:name] %>
+    <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <%= label_tag :password, nil, class: "label" %>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control">              
+            <%= password_field_tag :password, nil, class: "input is-focused #{"is-danger" if flash[:name]}" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field is-horizontal">
+    <div class="field-label">
+      <!-- Left empty for spacing -->
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%= submit_tag 'Login', class: "button is-primary" %>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>

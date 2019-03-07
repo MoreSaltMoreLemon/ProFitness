@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
-  validates :password, presence: true
+  validates :password, presence: true, length: { minimum: 5}, format: { with: /[0-9!@#$%^&*\(\)\\\/\[\]]+/, message: "must include non-alphabetic characters."}
 
   has_secure_password
 
