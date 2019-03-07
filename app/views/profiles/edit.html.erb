@@ -1,5 +1,0 @@
-<% require 'chartkick' %>
-<% data = [] %>
-
-<% @current_user.workouts.each_with_index {|d, i| data << [i, d.date.strftime("%Y").to_i * i] } %>
-<%= column_chart data %>

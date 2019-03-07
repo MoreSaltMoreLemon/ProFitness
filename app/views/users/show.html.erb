@@ -1,3 +1,4 @@
+<% require 'chartkick' %>
 <%= image_tag "splash/1200-woman-lifting-heavy-weights.jpg", id: "banner" %>
 <h3>User Name</h3>
 <%= @user.profile.name %><br>
@@ -7,6 +8,7 @@
   <%= w.date_field :date %><br>
   <%= w.submit %>
 <% end %>
+<%= column_chart @data %>
 
 <h1>Past Workouts</h1>
   <ul>
@@ -23,3 +25,4 @@
       </li>
     <% end %>
   </ul>
+<% byebug %>

@@ -12,7 +12,4 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  def personal_stats
-  end
-  
 end

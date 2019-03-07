@@ -12,6 +12,9 @@ class UsersController < ApplicationController
 
   def show
     @user.build_profile unless @user.profile
+    @data = @user.workouts.map do |workout|
+      [(workout.date.to_date - DateTime.now.to_date).to_i, workout.user_weight]
+    end
   end
 
   def create
