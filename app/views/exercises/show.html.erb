@@ -1,7 +1,20 @@
+<section class="hero is-medium is-primary is-bold" style="background-image: url('/assets/<%= @exercise.hero_image %>.jpg')">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        BRO FITNESS
+      </h1>
+      <h2 class="subtitle is-pulled-left">
+        The Importance of Being Arnold
+      </h2>
+    </div>
+  </div>
+</section>
+<%# img(<%= path_to_image @exercise.hero_image %>) 
 <h1 class="title">
   <%= @exercise.name.capitalize %><br>
 </h1>
-<%= image_tag @exercise.hero_image, id: "banner"  %><br>
+<%#= image_tag @exercise.hero_image, id: "banner"  %><br>
 <strong>Description</strong><br>
 <%= @exercise.description.capitalize %><br>
 <strong>Instruction</strong><br>
