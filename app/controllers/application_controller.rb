@@ -3,9 +3,6 @@ class ApplicationController < ActionController::Base
   helper_method :verify_login
   helper_method :set_current_user
 
-  def contact
-
-  end 
   def splash
     render file: 'applications/splash'
   end

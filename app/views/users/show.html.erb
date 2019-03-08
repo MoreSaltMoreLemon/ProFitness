@@ -15,8 +15,8 @@
 <%= column_chart @data %>
 <%= form_tag '/users/graph', method: :get do %>
   <%= hidden_field_tag :id, value = @user.id %>
-  <%= select_tag  :exercise_id, 
-                  options_from_collection_for_select(Exercise.all, "id", "name"), 
+  <%= select_tag  :exercise_id,
+                  options_from_collection_for_select(Exercise.all, "id", "name"),
                   include_blank: true, class: "input" %>
   <%= submit_tag "Update Graph", class: "button is-primary" %>
 <% end %>
@@ -36,3 +36,7 @@
       </li>
     <% end %>
   </ul>
+
+<div class="content" is-large>
+  <%= link_to "Check Out Some Exercises", exercises_path %>
+</div>

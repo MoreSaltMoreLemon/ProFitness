@@ -1,4 +1,4 @@
-<section class="hero is-medium is-primary is-bold" style="background-image: url('/assets/<%= @exercise.hero_image %>.jpg')">
+<div class="hero is-medium is-primary is-bold" style="background-image: url('/assets/<%= @exercise.hero_image %>.jpg')">
   <div class="hero-body">
     <div class="container is-pulled-left">
       <h1 class="title">
@@ -9,20 +9,32 @@
       </h2>
     </div>
   </div>
+</div>
+
+<span class="columns">
+  <span class="column has-text-centered">
+    <%= form_tag '/exercises/search', method: 'GET' do %>
+      <span class="select">
+        <%= select_tag 'id', options_from_collection_for_select(Exercise.all, "id", "name", @exercise.id)%>
+      </span>
+      <%= submit_tag "Find Exercise", class: "button" %>
+    <% end %>
+  </span>
+</span>
+
+
+<section class="section">
+  <div class="container">
+    <h1 class="title">
+      <%= @exercise.name.titleize %><br>
+    </h1>
+    <%#= image_tag @exercise.hero_image, id: "banner"  %><br>
+    <strong>Instruction</strong><br>
+    <%= @exercise.instruction.capitalize %><br>
+    <strong>Description</strong><br>
+    <%= @exercise.description.capitalize %><br>
+    <strong>Category Type</strong><br>
+    <%= @exercise.category.name.capitalize %>
+
+  </div>
 </section>
-
-<%= form_tag '/exercises/search', method: 'GET' do %>
-  <%= select_tag 'id', options_from_collection_for_select(Exercise.all, "id", "name") %>
-  <%= submit_tag "Find Exercise" %>
-<% end %>
-
-<h1 class="title">
-  <%= @exercise.name.titleize %><br>
-</h1>
-<%#= image_tag @exercise.hero_image, id: "banner"  %><br>
-<strong>Instruction</strong><br>
-<%= @exercise.instruction.capitalize %><br>
-<strong>Description</strong><br>
-<%= @exercise.description.capitalize %><br>
-<strong>Category Type</strong><br>
-<%= @exercise.category.name.capitalize %>

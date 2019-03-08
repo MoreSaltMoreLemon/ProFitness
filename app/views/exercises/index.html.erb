@@ -14,6 +14,6 @@
   <h1>Choose Your Exercise</h1>
 
   <%= form_tag '/exercises/search', method: 'GET' do %>
-    <%= select_tag 'id', options_from_collection_for_select(Exercise.all, "id", "name") %>
+    <%= select_tag 'id', options_from_collection_for_select(Exercise.all, "id", "name') %>
     <%= submit_tag "Find Exercise" %>
   <% end %>
