@@ -35,8 +35,6 @@
             </span>
           </p>
         </div>
-      </div>
-      <div class="field">
         <p class="control">
           <%= w.submit "Log Workout", class: "button is-primary"%>
         </p>
@@ -75,11 +73,11 @@
       <div class="column"></div>
       <div class="column is-centered">
         <div class="content">
-          <h1>Past Workouts</h1>
+          <h1>Last 5 Workouts</h1>
             <ul id="no-dots">
-              <% @user.workouts.sort_by(&:date).reverse[0..4].each do |workout| %>
+              <% @user.last_five_workouts.each do |workout| %>
                 <li>
-                  <h2><%= workout.date.strftime("%A, %b %d") %></h2>
+                  <h2><%= link_to workout.date.strftime("%A, %b %d"), workout_path(workout) %></h2>
                   <ul>
                     <% workout.workout_sets.each do |set| %>
                       <li>

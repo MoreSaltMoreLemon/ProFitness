@@ -16,7 +16,7 @@
     <header>
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-          <a href="/" id="logo"><%= image_tag "logo/logo.png" %></a>
+          <a href="/" id="logo"><%= image_tag "logo/logo-rect.jpg" %></a>
           <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -31,7 +31,7 @@
                 <% if logged_in? %>
                   <%= link_to "Home", user_path(set_current_user) , class: "navbar-item"%>
                   <hr class="navbar-divider">
-                  <%= link_to "Profile", edit_profile_path(set_current_user) , class: "navbar-item"%>
+                  <%= link_to "Edit Profile", edit_profile_path(set_current_user) , class: "navbar-item"%>
                   <hr class="navbar-divider">
                   <%= link_to "Exercises", exercises_path, class: "navbar-item"%>
                   <hr class="navbar-divider">

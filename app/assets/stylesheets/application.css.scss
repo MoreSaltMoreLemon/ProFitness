@@ -50,7 +50,7 @@ $input-shadow: none;
 
 #logo img {
   height: 66px;
-  width: 66px;
+  // width: 66px;
 // max-height:100%;
 // object-fit: contain;
 }
@@ -73,6 +73,11 @@ footer.footer {
 
 #no-dots li {
   list-style-type: none;
+}
+
+.hero {
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 

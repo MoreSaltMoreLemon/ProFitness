@@ -13,4 +13,9 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  def last_five_workouts
+    sorted_workouts = self.workouts.sort_by(&:date).reverse
+    workouts_with_sets = sorted_workouts.select {|w| w.workout_sets.any? }
+    workouts_with_sets[0..4]
+  end
 end

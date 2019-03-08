@@ -10,21 +10,68 @@
     </div>
   </div>
 </section>
-<%= @workout.show_date %><br>
-<ul>
-  <% @workout.workout_sets.each do |ws| %>
-    <li>
-      <%= content_tag :p, "#{ws.exercise.name.titleize.pluralize(ws.reps)}: #{ws.reps} reps of #{ws.weight} "%>
-      <%= button_to "X", ws, method: :delete%>
-    </li>
-  <% end %>
-</ul>
-<%= form_for @workout.workout_sets.build do |set| %>
-  <%= set.hidden_field :workout_id, value: @workout.id  %>
-  Exercise: <%= set.collection_select :exercise_id, Exercise.all.sort_by {|ex| ex.name}, :id, :name %>
-  Reps: <%= set.number_field :reps %>
-  Weight: <%= set.number_field :weight %>
-  <%= set.submit 'Add Set' %>
-<% end %>
 
-<%= link_to "Submit Form", user_path(@workout.user)%>
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-one-quarter"></div>
+      <div class="column">
+        <div class="content">
+          <h1 class="is-size-4"><%= @workout.show_date %></h1><br>
+          <ul id="no-dots">
+            <% @workout.workout_sets.each do |ws| %>
+              <li>
+                <p class="control">
+                  <%= link_to "X", ws, method: :delete, class: "button is-small"%>
+                  <%= "#{ws.exercise.name.titleize.pluralize(ws.reps)}: #{ws.reps} reps of #{ws.weight} #{@workout.user.profile.metric == true ? "Kg" : "lbs"} "%>
+                </p>
+              </li>
+            <% end %>
+          </ul>
+          
+        </div>
+      </div>
+      <div class="column is-one-quarter"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="is-error"><%= flash[:error] if flash[:error] %></h2>
+    <%= form_for @workout.workout_sets.build do |set| %>          
+      <div class="field has-addons">
+        <div class="field">
+          <p class="control select has-icons-left is-focused has-icons-right">
+            <%= set.hidden_field :workout_id, value: @workout.id  %>
+            <%= set.collection_select :exercise_id, Exercise.all.sort_by {|ex| ex.name}, :id, :name, class: "input select is-focused"%>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control has-icons-left">
+              <%= set.number_field :reps, class: "input is-focused #{"is-danger" if flash[:date]}" , placeholder: "Reps"%>
+            <span class="icon is-small is-left">
+              <i class="fas fa-times"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control has-icons-left">
+              <%= set.number_field :weight, class: "input is-focused #{"is-danger" if flash[:date]}" , placeholder: "Weight"%>
+            <span class="icon is-small is-left">
+              <i class="fas fa-dumbbell"></i>
+            </span>
+          </p>
+        </div>
+        <p class="control">
+          <%= set.submit 'Add Set', class: "button is-primary" %>
+        </p>
+        <div class="field">
+          <p class="control">
+            <%= link_to "Finalize Workout", user_path(@workout.user), class: "button"%>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>  
