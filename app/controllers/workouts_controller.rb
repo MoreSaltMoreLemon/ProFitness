@@ -20,8 +20,10 @@ class WorkoutsController < ApplicationController
       @workout.save
       redirect_to workout_path(@workout)
     else
-      byebug
-      render user_path(@current_user)
+      flash[:error] = "Select a date, bro"
+      flash[:date] = @workout.errors.full_messages_for(:date).join(". ") if @workout.errors[:date]
+      @user = @current_user
+      redirect_to user_path(@user)
     end
   end
 

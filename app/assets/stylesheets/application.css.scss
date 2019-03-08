@@ -12,7 +12,7 @@ $white: #FCFCFC;
 $light-blue: #AFC0C4;
 $blue: #6A8991;
 $green: #318282;
-$mauve: #C4AFB6;
+$mauve: rgb(199, 191, 193);
 $red: #F8BBB8;
 
 // Update Bulma's global variables
@@ -58,8 +58,22 @@ $input-shadow: none;
 #navbar {
   background-color: $blue;
 }
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
 
+footer.footer {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  padding: 1.5rem 1.5rem;
+}
 
+#no-dots li {
+  list-style-type: none;
+}
 
 
 

@@ -1,41 +1,102 @@
 <% require 'chartkick' %>
-<%= image_tag "splash/olympic-lift.jpg", id: "banner" %>
-<h3>User Name</h3>
-<%= @user.profile.name %><br>
+<section class="hero is-medium is-primary is-bold" style="background-image: url('/assets/splash/olympic-lift.jpg')">
+  <div class="hero-body">
+    <div class="container is-pulled-left">
+      <h1 class="title">
+        BRO FITNESS
+      </h1>
+      <h2 class="subtitle is-pulled-left">
+        The Importance of <%= @user.profile.name.titleize %>
+      </h2>
+    </div>
+  </div>
+</section>
 
-<%= form_for Workout.new do |w| %>
-  <%= w.hidden_field :user_id, value: @user.id %>
-  <%= w.label "Weigh-In:", nil, class: "label"%>
-  <%= w.number_field :user_weight, class: "input"%>
-  <%= w.label "Date:", nil, class: "label"%>
-  <%= w.date_field :date, class: "input" %><br>
-  <%= w.submit class: "button is-primary"%>
-<% end %>
 
-<%= column_chart @data %>
-<%= form_tag '/users/graph', method: :get do %>
-  <%= hidden_field_tag :id, value = @user.id %>
-  <%= select_tag  :exercise_id,
-                  options_from_collection_for_select(Exercise.all, "id", "name"),
-                  include_blank: true, class: "input" %>
-  <%= submit_tag "Update Graph", class: "button is-primary" %>
-<% end %>
-
-<h1>Past Workouts</h1>
-  <ul>
-    <% @user.workouts.sort_by(&:date).reverse[0..4].each do |workout| %>
-      <li>
-        <h2><%= workout.date.strftime("%A, %b %d") %></h2>
-        <ul>
-          <% workout.workout_sets.each do |set| %>
-            <li>
-              <h5><%= "#{set.exercise.name.capitalize}: #{set.reps} x #{set.weight} #{@user.profile.metric == true ? "Kg" : "lbs"}" %></h5>
-            </li>
-          <% end %>
-        </ul>
-      </li>
+<section class="section">
+  <div class="container">
+    <h2 class="is-error"><%= flash[:error] if flash[:error] %></h2>
+    <%= form_for Workout.new do |w| %>
+      <div class="field has-addons">
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <%= w.hidden_field :user_id, value: @user.id %>
+            <%= w.number_field :user_weight, class: "input is-focused", placeholder: "Weight"%>
+            <span class="icon is-small is-left">
+              <i class="fas fa-weight"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control has-icons-left">
+            <%= w.date_field :date, class: "input is-focused #{"is-danger" if flash[:date]}" , placeholder: "Date"%><br>
+            <span class="icon is-small is-left">
+              <i class="fas fa-calendar-check"></i>
+            </span>
+          </p>
+        </div>
+      </div>
+      <div class="field">
+        <p class="control">
+          <%= w.submit "Log Workout", class: "button is-primary"%>
+        </p>
+      </div>
     <% end %>
-  </ul>
+  </div>
+</section>    
+
+<section class="section">
+  <div class="container">
+    <%= column_chart @data %>
+    <%= form_tag '/users/graph', method: :get do %>
+      <%= hidden_field_tag :id, value = @user.id %>
+      <div class="field has-addons">
+        <div class="control has-icons-left">
+          <div class="select">
+            <%= select_tag  :exercise_id,
+                        options_from_collection_for_select(Exercise.all, "id", "name"),
+                        class: "select is-focused is-fullwidth" %>
+          </div>
+          <span class="icon is-small is-left">
+            <i class="fas fa-dumbbell"></i>
+          </span>
+        </div>
+        <div class="control">
+          <%= submit_tag "Update Graph", class: "button is-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column"></div>
+      <div class="column is-centered">
+        <div class="content">
+          <h1>Past Workouts</h1>
+            <ul id="no-dots">
+              <% @user.workouts.sort_by(&:date).reverse[0..4].each do |workout| %>
+                <li>
+                  <h2><%= workout.date.strftime("%A, %b %d") %></h2>
+                  <ul>
+                    <% workout.workout_sets.each do |set| %>
+                      <li>
+                        <h5><%= "#{set.exercise.name.capitalize}: #{set.reps} x #{set.weight} #{@user.profile.metric == true ? "Kg" : "lbs"}" %></h5>
+                      </li>
+                    <% end %>
+                  </ul>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+        <div class="column"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <div class="content" is-large>
   <%= link_to "Check Out Some Exercises", exercises_path %>
