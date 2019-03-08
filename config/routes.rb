@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   post      '/login', to: 'sessions#create'
   delete    '/login', to: 'sessions#destroy', as: '/logout'
   get       '/users/graph', to: 'users#graph'
+  get       '/exercises/search', to: 'exercises#search'
+  get       '/contact', to: 'application#contact'
   resources :categories
   resources :exercises
   resources :workouts

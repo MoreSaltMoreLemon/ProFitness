@@ -1,9 +1,19 @@
-<%= image_tag "workout.jpg", id: "banner" %>
-<h1>Choose Your Exercise</h1>
-<ul>
-  <% @exercises.each do |exercise| %>
-  <li>
-  <%= link_to exercise.name.capitalize, exercise %>
-  </li>
+<section class="hero is-medium is-primary is-bold" style="background-image: url('/assets/splash/workout.jpg')">
+  <div class="hero-body">
+    <div class="container is-pulled-left">
+      <h1 class="title">
+        BRO FITNESS
+      </h1>
+      <h2 class="subtitle is-pulled-left">
+        The Importance of Being Arnold
+      </h2>
+    </div>
+  </div>
+  </section>
+
+  <h1>Choose Your Exercise</h1>
+
+  <%= form_tag '/exercises/search', method: 'GET' do %>
+    <%= select_tag 'id', options_from_collection_for_select(Exercise.all, "id", "name") %>
+    <%= submit_tag "Find Exercise" %>
   <% end %>
-</ul>
