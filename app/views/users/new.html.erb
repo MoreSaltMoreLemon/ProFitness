@@ -1,5 +1,7 @@
 <% content_tag(:h2, flash[:error], class: "is-error") if flash[:error] %>
 
+<br>
+<br>
 <section class="field is-horizontal">
   <%= form_for @user do |u| %>
 
@@ -11,7 +13,7 @@
       <div class="field-body">
         <div class="field">
           <div class="control">
-            <%= u.text_field :username, class: "input #{"is-danger" if flash[:username]}" %>
+            <%= u.text_field :username, class: "input is-focused #{"is-danger" if flash[:username]}" %>
           </div>
         </div>
       </div>
@@ -25,7 +27,7 @@
       <div class="field-body">
         <div class="field">
           <div class="control">
-            <%= u.text_field :email, class: "input #{"is-danger" if flash[:email]}" %>
+            <%= u.text_field :email, class: "input is-focused #{"is-danger" if flash[:email]}" %>
           </div>
         </div>
       </div>
@@ -39,7 +41,7 @@
       <div class="field-body">
         <div class="field">
           <div class="control">
-            <%= u.password_field :password, class: "input #{"is-danger" if flash[:password]}" %>
+            <%= u.password_field :password, class: "input is-focused #{"is-danger" if flash[:password]}" %>
           </div>
         </div>
       </div>
@@ -53,7 +55,7 @@
       <div class="field-body">
         <div class="field">
           <div class="control">
-            <%= u.password_field :password_confirmation, class: "input #{"is-danger" if flash[:password]}" %>
+            <%= u.password_field :password_confirmation, class: "input is-focused #{"is-danger" if flash[:password]}" %>
           </div>
         </div>
       </div>
@@ -72,5 +74,3 @@
     </div>
   <% end %>
 </div>
-  
-  

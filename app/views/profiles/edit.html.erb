@@ -1,3 +1,5 @@
+<br>
+<br>
 <section class="field is-horizontal">
   <%= form_for @profile do |p| %>
     <%= p.hidden_field :user_id, value: @profile.user.id %>
@@ -9,7 +11,7 @@
       <div class="field-body">
         <div class="field">
           <div class="control">
-            <%= p.text_field :name, class: "input #{"is-danger" if flash[:name]}" %>
+            <%= p.text_field :name, class: "input is-focused #{"is-danger" if flash[:name]}" %>
           </div>
         </div>
       </div>
@@ -22,10 +24,10 @@
       <div class="field-body">
         <div class="field has-addons">
           <div class="control is-expanded">
-            <%= p.number_field :height, class: "input is-fullwidth #{"is-danger" if flash[:height]}" %>
+            <%= p.number_field :height, class: "input is-fullwidth is-focused #{"is-danger" if flash[:height]}" %>
           </div>
           <div class="control select">
-            <%= p.select :height_unit, [['Meters', true], ['Feet', false]], {}, class: "select"%>
+            <%= p.select :height_unit, [['Meters', true], ['Feet', false]], {}, class: "select is-focused"%>
           </div>
         </div>
       </div>
@@ -38,10 +40,10 @@
       <div class="field-body">
         <div class="field has-addons">
           <div class="control is-expanded">
-            <%= p.number_field :starting_weight, class: "input is-fullwidth #{"is-danger" if flash[:starting_weight]}" %>
+            <%= p.number_field :starting_weight, class: "input is-fullwidth is-focused #{"is-danger" if flash[:starting_weight]}" %>
           </div>
           <div class="control select">
-            <%= p.select :weight_unit, [['Kg', true], ['Lbs', false]], {}, class: "select"%>
+            <%= p.select :weight_unit, [['Kg', true], ['Lbs', false]], {}, class: "select is-focused"%>
           </div>
         </div>
       </div>
@@ -54,7 +56,7 @@
       <div class="field-body">
         <div class="field">
           <div class="control is-expanded">
-            <%= p.number_field :age, class: "input #{"is-danger" if flash[:age]}" %>
+            <%= p.number_field :age, class: "input is-focused #{"is-danger" if flash[:age]}" %>
           </div>
         </div>
       </div>
@@ -66,8 +68,7 @@
       </div>
       <div class="field-body">
         <div class="file">
-            <%= p.file_field :avatar_image, class: "input" %>
-          </label>
+            <%= p.file_field :avatar_image, class: "input is-focused" %>
         </div>
       </div>
     </div>
@@ -79,7 +80,7 @@
         <div class="field">
           <div class="control">
             <div class="select">
-              <%= p.select :metric, [['Metric', true], ['Merican', false]], {}, class: "select"%>
+              <%= p.select :metric, [['Metric', true], ['Merican', false]], {}, class: "select is-focused"%>
             </div>
           </div>
         </div>
@@ -98,6 +99,3 @@
       </div>
     </div>
   <% end %>
-</div>
-  
-  
