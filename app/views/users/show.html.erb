@@ -1,14 +1,25 @@
 <% require 'chartkick' %>
-<%= image_tag "splash/1200-woman-lifting-heavy-weights.jpg", id: "banner" %>
+<%= image_tag "splash/olympic-lift.jpg", id: "banner" %>
 <h3>User Name</h3>
 <%= @user.profile.name %><br>
 
 <%= form_for Workout.new do |w| %>
   <%= w.hidden_field :user_id, value: @user.id %>
-  <%= w.date_field :date %><br>
-  <%= w.submit %>
+  <%= w.label "Weigh-In:", nil, class: "label"%>
+  <%= w.number_field :user_weight, class: "input"%>
+  <%= w.label "Date:", nil, class: "label"%>
+  <%= w.date_field :date, class: "input" %><br>
+  <%= w.submit class: "button is-primary"%>
 <% end %>
+
 <%= column_chart @data %>
+<%= form_tag '/users/graph', method: :get do %>
+  <%= hidden_field_tag :id, value = @user.id %>
+  <%= select_tag  :exercise_id, 
+                  options_from_collection_for_select(Exercise.all, "id", "name"), 
+                  include_blank: true, class: "input" %>
+  <%= submit_tag "Update Graph", class: "button is-primary" %>
+<% end %>
 
 <h1>Past Workouts</h1>
   <ul>
@@ -18,7 +29,7 @@
         <ul>
           <% workout.workout_sets.each do |set| %>
             <li>
-              <h5><%= "#{set.exercise.name.capitalize}: #{set.reps} x #{set.weight}" %></h5>
+              <h5><%= "#{set.exercise.name.capitalize}: #{set.reps} x #{set.weight} #{@user.profile.metric == true ? "Kg" : "lbs"}" %></h5>
             </li>
           <% end %>
         </ul>

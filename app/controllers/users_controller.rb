@@ -6,6 +6,9 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def edit
+  end
+    
   def new
     @user = User.new
   end
@@ -33,7 +36,22 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
+  def graph
+    @user = User.find_by(id: params[:id])
+    ordered_workouts = @user.workouts.sort_by(&:date).reverse
+    @data = ordered_workouts[0..50].map do |workout|
+      exercise_sets = workout.workout_sets.select do |set|
+        set.exercise_id == params[:exercise_id].to_i
+      end
+      # byebug
+      if exercise_sets.any?
+        max = exercise_sets.max_by {|set| set.weight }
+        [workout.date, max.weight]
+      end
+    end
+    @data.delete_if {|v| v.nil? }
+    
+    render :show
   end
 
   def update

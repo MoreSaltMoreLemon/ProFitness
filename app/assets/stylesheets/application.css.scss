@@ -1,81 +1,64 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 
 // Set your brand colors
-$white: #FFF;
-$purple: #8A4D76;
-$pink: #FA7C91;
-$brown: #757763;
-$beige-light: #D0D1CD;
-$beige-lighter: #EFF0EB;
+// $white: #FFF;
+// $purple: #8A4D76;
+// $pink: #FA7C91;
+// $brown: #757763;
+// $beige-light: #D0D1CD;
+// $beige-lighter: #EFF0EB;
+
+$white: #FCFCFC;
+$light-blue: #AFC0C4;
+$blue: #6A8991;
+$green: #318282;
+$mauve: #C4AFB6;
+$red: #F8BBB8;
 
 // Update Bulma's global variables
 $family-sans-serif: "Nunito", sans-serif;
-$grey-dark: $brown;
-$grey-light: $beige-light;
-$primary: $purple;
-$link: $pink;
+$grey-dark: $blue;
+$grey-light: $light-blue;
+$primary: $green;
+$link: $mauve;
 $widescreen-enabled: false;
 $fullhd-enabled: false;
 
 // Update some of Bulma's component variables
-$body-background-color: $beige-lighter;
+$body-background-color: $white;
 $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
 
 @import "bulma";
 
-header {
-  height: 100px;
-  background-color: darkgrey;
-}
-
-.authenticate {
-  float: right;
-  font-size: 20px;
-}
+// .authenticate {
+//   float: right;
+//   font-size: 20px;
+// }
 
 
 /* Create three equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 10px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-footer {
-  height: 50px;
-  background-color: darkgrey;}
-
-.contact {
-  float: right;
-  font-size: 20px;
+// .column {
+//   float: left;
+//   width: 33.33%;
+//   padding: 10px;
+// }
+#logo {
+  display: flex;
 }
 
 #logo img {
-  height: 100px;
-  width: 100px;
+  height: 66px;
+  width: 66px;
+// max-height:100%;
+// object-fit: contain;
 }
 
-#banner {
-  background-image: url("./splash/lifting.webp");
-  height: auto;
-  width: 50%;
-  max-height: 300px;
-  align-self: center;
+#navbar {
+  background-color: $blue;
 }
 
-h2 {
-  font-style: italic;
-  text-align: center;
-}
 
 
 

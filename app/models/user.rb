@@ -1,6 +1,7 @@
 require 'bcrypt'
 
 class User < ApplicationRecord
+  attr_accessor :graph_data
   has_one :profile
   # has_many :histories
   has_many :workouts

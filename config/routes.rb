@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get       '/login', to: 'sessions#new'
   post      '/login', to: 'sessions#create'
   delete    '/login', to: 'sessions#destroy', as: '/logout'
+  get       '/users/graph', to: 'users#graph'
   resources :categories
   resources :exercises
   resources :workouts
