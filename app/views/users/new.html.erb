@@ -1,76 +1,83 @@
-<% content_tag(:h2, flash[:error], class: "is-error") if flash[:error] %>
-
 <br>
 <br>
-<section class="field is-horizontal">
-  <%= form_for @user do |u| %>
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column"></div>
+      <div class="column">
+      <% content_tag(:h2, flash[:error], class: "is-error") if flash[:error] %>
+      <section class="field is-horizontal">
+        <%= form_for @user do |u| %>
 
-    <%= content_tag(:h3, flash[:username]) if flash[:username] %>
-    <div class="field is-horizontal">
-      <div class="field-label is-normal">
-        <%= u.label :username %>
-      </div>
-      <div class="field-body">
-        <div class="field">
-          <div class="control">
-            <%= u.text_field :username, class: "input is-focused #{"is-danger" if flash[:username]}" %>
+          <div class="field">
+            <div class="label">
+              <%= u.label :username %>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <%= u.text_field :username, class: "input is-focused #{"is-danger" if flash[:username]}" %>
+                </div>
+              </div>
+            </div>
+            <%= content_tag(:p, flash[:username], class: "help is-danger") if flash[:username] %>
           </div>
-        </div>
-      </div>
-    </div>
 
-    <%= content_tag(:h3, flash[:email]) if flash[:email] %>
-    <div class="field is-horizontal">
-      <div class="field-label is-normal">
-        <%= u.label :email %>
-      </div>
-      <div class="field-body">
-        <div class="field">
-          <div class="control">
-            <%= u.text_field :email, class: "input is-focused #{"is-danger" if flash[:email]}" %>
+          <div class="field">
+            <div class="label">
+              <%= u.label :email %>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <%= u.text_field :email, class: "input is-focused #{"is-danger" if flash[:email]}" %>
+                </div>
+              </div>
+            </div>
+            <%= content_tag(:p, flash[:email], class: "help is-danger") if flash[:email] %>
           </div>
-        </div>
-      </div>
-    </div>
 
-    <%= content_tag(:h3, flash[:password]) if flash[:password] %>
-    <div class="field is-horizontal">
-      <div class="field-label is-normal">
-        <%= u.label :password %>
-      </div>
-      <div class="field-body">
-        <div class="field">
-          <div class="control">
-            <%= u.password_field :password, class: "input is-focused #{"is-danger" if flash[:password]}" %>
+          <div class="field">
+            <div class="label">
+              <%= u.label :password %>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <%= u.password_field :password, class: "input is-focused #{"is-danger" if flash[:password]}" %>
+                </div>
+              </div>
+            </div>
+            <%= content_tag(:p, flash[:password], class: "help is-danger") if flash[:password] %>
           </div>
-        </div>
-      </div>
-    </div>
 
-    <%= content_tag(:h3, flash[:password]) if flash[:password] %>
-    <div class="field is-horizontal">
-      <div class="field-label is-normal">
-        <%= u.label :password_confirmation %>
-      </div>
-      <div class="field-body">
-        <div class="field">
-          <div class="control">
-            <%= u.password_field :password_confirmation, class: "input is-focused #{"is-danger" if flash[:password]}" %>
+          <div class="field">
+            <div class="label">
+              <%= u.label :password_confirmation %>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <%= u.password_field :password_confirmation, class: "input is-focused #{"is-danger" if flash[:password]}" %>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="field is-horizontal">
-      <div class="field-label">
-        <!-- Left empty for spacing -->
-      </div>
-      <div class="field-body">
-        <div class="field">
-          <div class="control">
-            <%= u.submit class: "button is-primary" %>
+          <div class="field is-horizontal">
+            <div class="field-label">
+              <!-- Left empty for spacing -->
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <%= u.submit class: "button is-primary" %>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
+      <div class="column"></div>
     </div>
-  <% end %>
-</div>
+  </div>
+</section>

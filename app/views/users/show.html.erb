@@ -18,7 +18,7 @@
     <h2 class="is-error"><%= flash[:error] if flash[:error] %></h2>
     <%= form_for Workout.new do |w| %>
       <div class="field has-addons">
-        <div class="field">
+        <div class="field has-addons">
           <p class="control has-icons-left has-icons-right">
             <%= w.hidden_field :user_id, value: @user.id %>
             <%= w.number_field :user_weight, class: "input is-focused", placeholder: "Weight"%>
@@ -26,7 +26,11 @@
               <i class="fas fa-weight"></i>
             </span>
           </p>
+          <p class="control">
+            <p class="button is-static"><%= @user.profile.metric == true ? "Kg" : "lbs" %></a>
+          </p>
         </div>
+        <i>  </i>
         <div class="field">
           <p class="control has-icons-left">
             <%= w.date_field :date, class: "input is-focused #{"is-danger" if flash[:date]}" , placeholder: "Date"%><br>
