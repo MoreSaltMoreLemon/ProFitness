@@ -6,7 +6,7 @@
         BRO FITNESS
       </h1>
       <h2 class="subtitle is-pulled-left">
-        The Importance of <%= @user.profile.name.titleize %>
+        The Importance of being <%= @user.profile.name.titleize %>
       </h2>
     </div>
   </div>
@@ -45,7 +45,7 @@
 
 <section class="section">
   <div class="container">
-    <%= column_chart @data %>
+    <%= column_chart @data, xtitle: "Days Ago", ytitle: "Weight #{@user.profile.metric == true ? "Kg" : "lbs"}" %>
     <%= form_tag '/users/graph', method: :get do %>
       <%= hidden_field_tag :id, value = @user.id %>
       <div class="field has-addons">

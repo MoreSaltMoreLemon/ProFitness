@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :exercises
   resources :workouts
   resources :workout_sets, only: [:new, :create, :edit, :update, :destroy]
-  resources :users
+  resources :users, only: [:new, :create, :edit, :update, :show]
   resources :profiles, only: [:show, :new, :create, :edit, :update]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

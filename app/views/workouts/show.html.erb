@@ -36,7 +36,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section add-workout">
   <div class="container">
     <h2 class="is-error"><%= flash[:error] if flash[:error] %></h2>
     <%= form_for @workout.workout_sets.build do |set| %>          
@@ -44,7 +44,7 @@
         <div class="field">
           <p class="control select has-icons-left is-focused has-icons-right">
             <%= set.hidden_field :workout_id, value: @workout.id  %>
-            <%= set.collection_select :exercise_id, Exercise.all.sort_by {|ex| ex.name}, :id, :name, class: "input select is-focused"%>
+            <%= set.collection_select :exercise_id, Exercise.all.sort_by {|ex| ex.name}, :id, :name, class: "select is-focused"%>
           </p>
         </div>
         <div class="field">

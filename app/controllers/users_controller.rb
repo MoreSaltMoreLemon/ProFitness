@@ -27,7 +27,6 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to new_profile_path(@user)
     else
-      # byebug
       flash[:error] = "Invalid Input. Please Re-enter your information."
       flash[:password] = @user.errors.full_messages_for(:password).join(". ") if @user.errors[:password]
       flash[:username] = @user.errors.full_messages_for(:username).join(". ") if @user.errors[:username]
@@ -43,10 +42,9 @@ class UsersController < ApplicationController
       exercise_sets = workout.workout_sets.select do |set|
         set.exercise_id == params[:exercise_id].to_i
       end
-      # byebug
       if exercise_sets.any?
         max = exercise_sets.max_by {|set| set.weight }
-        [workout.date, max.weight]
+        [(workout.date.to_date - DateTime.now.to_date).to_i, max.weight]
       end
     end
     @data.delete_if {|v| v.nil? }

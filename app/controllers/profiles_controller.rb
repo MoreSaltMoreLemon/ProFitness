@@ -40,21 +40,29 @@ class ProfilesController < ApplicationController
     end
   end
 
-  # def edit
-  # end
-
   def update
-    @profile = Profile.update( user_id: profile_params[:user_id],
-                            name: profile_params[:name],
-                            age: profile_params[:age],
-                            metric: profile_params[:metric],
-                            avatar_image: profile_params[:avatar_image],
-                            height: profile_params[:height_unit] == "true" ? 
-                                    profile_params[:height] : 
-                                    convert_to_meters(profile_params[:height]), 
-                            starting_weight: profile_params[:weight_unit] == "true" ? 
-                                             profile_params[:starting_weight] : 
-                                             convert_to_kg(profile_params[:starting_weight])) 
+    # byebug
+    profile_data = {
+      user_id: profile_params[:user_id],
+      name: profile_params[:name],
+      age: profile_params[:age],
+      metric: profile_params[:metric],
+      avatar_image: profile_params[:avatar_image],
+      height: profile_params[:height_unit] == "true" ? 
+              profile_params[:height].to_f.round(2) : 
+              convert_to_meters(profile_params[:height]), 
+      starting_weight:  profile_params[:weight_unit] == "true" ? 
+                        profile_params[:starting_weight].to_f.round(2) : 
+                        convert_to_kg(profile_params[:starting_weight])
+    }
+    @profile = Profile.find_by(id: profile_params[:user_id])
+    @profile.update( user_id: profile_data[:user_id],
+                            name: profile_data[:name],
+                            age: profile_data[:age],
+                            metric: profile_data[:metric],
+                            avatar_image: profile_data[:avatar_image],
+                            height: profile_data[:height],
+                            starting_weight: profile_data[:height]) 
     if @profile.valid?
       redirect_to @profile.user
     else
