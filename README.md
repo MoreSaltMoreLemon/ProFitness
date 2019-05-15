@@ -1,24 +1,22 @@
-# README
+# [ProFitness](https://pro-fitness.herokuapp.com/)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Weightlifting Workout Tracker App
 
-Things you may want to cover:
+Collaborative project by [Ben Haugen](https://www.linkedin.com/in/benhaugen88/) and [Ezra Schwepker](https://www.linkedin.com/in/ezra-schwepker/).
 
-* Ruby version
+A simple web application allowing users to record workouts, view past workouts, discover new exercises and chart progress over time for bodyweight and exercises.
 
-* System dependencies
+## Use
 
-* Configuration
+Example login with Dummy Data:
+Username: "user"
+Password: "passw0rd"
 
-* Database creation
 
-* Database initialization
+## About
 
-* How to run the test suite
+Ruby on Rails dynamically generated multi-page app, styled with Bulma CSS framework.
 
-* Services (job queues, cache servers, search engines, etc.)
+Authentication via Sessions and BCrypt.
 
-* Deployment instructions
-
-* ...
+Charts using ChartKick gem wrapper.
