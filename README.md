@@ -12,7 +12,7 @@ Example login with Dummy Data:
 Username: "user"
 Password: "passw0rd"
 
-![Image of App use](https://g.recordit.co/NXRgpsSIOc.gif)
+[Gif of App use](https://g.recordit.co/NXRgpsSIOc.gif)
 
 ## About
 
