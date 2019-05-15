@@ -12,7 +12,7 @@ Example login with Dummy Data:
 Username: "user"
 Password: "passw0rd"
 
-![Gif Walkthrough](https://i.imgur.com/hDyDDMy.gifv)
+[![Gif Walkthrough](ProFitnessWalkthrough.gif)](ProFitnessWalkthrough.gif "Gif Walkthrough")
 
 ## About
 
