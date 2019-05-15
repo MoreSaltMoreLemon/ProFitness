@@ -9,8 +9,8 @@
           <%= form_for @profile do |p| %>
             <%= p.hidden_field :user_id, value: @profile.user.id %>
             <%= content_tag(:h3, flash[:name]) if flash[:name] %>
-            <div class="field is-horizontal">
-              <div class="field-label is-normal">
+            <div class="field">
+              <div class="label">
                 <%= p.label :name, class: "label" %>
               </div>
               <div class="field-body">
@@ -20,10 +20,11 @@
                   </div>
                 </div>
               </div>
+              <%= content_tag(:p, flash[:name], class: "help is-danger") if flash[:name] %>
             </div>
-            <%= content_tag(:h3, flash[:height]) if flash[:height] %>
-            <div class="field is-horizontal">
-              <div class="field-label is-normal">
+            
+            <div class="field">
+              <div class="label">
                 <%= p.label :height, class: "label" %>
               </div>
               <div class="field-body">
@@ -36,10 +37,11 @@
                   </div>
                 </div>
               </div>
+              <%= content_tag(:p, flash[:height], class: "help is-danger") if flash[:height] %>
             </div>
-            <%= content_tag(:h3, flash[:weight_unit]) if flash[:weight_unit] %>
-            <div class="field is-horizontal">
-              <div class="field-label is-normal">
+            
+            <div class="field">
+              <div class="label">
                 <%= p.label :starting_weight, class: "label" %>
               </div>
               <div class="field-body">
@@ -52,10 +54,11 @@
                   </div>
                 </div>
               </div>
+              <%= content_tag(:p, flash[:starting_weight], class: "help is-danger") if flash[:starting_weight] %>
             </div>
-            <%= content_tag(:h3, flash[:age]) if flash[:age] %>
-            <div class="field is-horizontal">
-              <div class="field-label is-normal">
+            
+            <div class="field">
+              <div class="label">
                 <%= p.label :age, class: "label" %>
               </div>
               <div class="field-body">
@@ -66,8 +69,8 @@
                 </div>
               </div>
             </div>
-            <div class="field is-horizontal">
-              <div class="field-label is-normal">
+            <div class="field">
+              <div class="label">
                 <%= p.label "Select Avatar", class: "label" %>
                 <%# <label class="file-label"> %>
               </div>
@@ -77,8 +80,8 @@
                 </div>
               </div>
             </div>
-            <div class="field is-horizontal">
-              <div class="field-label is-normal">
+            <div class="field">
+              <div class="label">
                 <%= p.label "Preferred Units:", class: "label" %>
               </div>
               <div class="field-body">
@@ -91,7 +94,7 @@
                 </div>
               </div>
             </div>
-            <div class="field is-horizontal">
+            <div class="field">
               <div class="field-label">
                 <!-- Left empty for spacing -->
               </div>
