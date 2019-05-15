@@ -12,11 +12,16 @@ Example login with Dummy Data:
 Username: "user"
 Password: "passw0rd"
 
+![Image of App use](http://g.recordit.co/NXRgpsSIOc.gif)
 
 ## About
 
-Ruby on Rails dynamically generated multi-page app, styled with Bulma CSS framework.
+Ruby on Rails dynamically generated multi-page app using ERB templates.
+
+Styled with Bulma CSS framework.
 
 Authentication via Sessions and BCrypt.
 
 Charts using ChartKick gem wrapper.
+
+Postgres DB with 7 models, ActiveRecord ORM.
