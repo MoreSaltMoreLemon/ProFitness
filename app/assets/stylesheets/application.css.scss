@@ -65,11 +65,13 @@ header {
 }
 
 footer.footer {
-  display: flex;
+  width: 100vw;
   position: fixed;
   bottom: 0;
   z-index: 10;
   padding: 1.5rem 1.5rem;
+  padding-left: auto;
+  padding-right: auto;
 }
 
 #no-dots li {
