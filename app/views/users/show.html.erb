@@ -33,7 +33,7 @@
         <i>  </i>
         <div class="field">
           <p class="control has-icons-left">
-            <%= w.date_field :date, class: "input is-focused #{"is-danger" if flash[:date]}" , placeholder: "Date"%><br>
+            <%= w.date_field :date, class: "input is-focused #{"is-danger" if flash[:date]}" , value: Time.now.strftime("%Y-%m-%d")%><br>
             <span class="icon is-small is-left">
               <i class="fas fa-calendar-check"></i>
             </span>

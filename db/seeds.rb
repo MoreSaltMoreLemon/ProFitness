@@ -39,7 +39,7 @@ exercises = {"chest" => [ { name: "Bench Press", instruction: "The barbell bench
 # byebug
 user = User.create( username: "user",
                     email: Faker::Internet.unique.email("user"),
-                    actual_password: "passw0rd",
+                    # actual_password: "passw0rd",
                     password: "passw0rd")
 profile = user.build_profile( name: "user",
           height: Faker::Number.between(1, 2.5),
@@ -66,7 +66,7 @@ end
   pwd = Faker::Internet.unique.password
   user = User.create( username: Faker::Internet.unique.username(user_name),
                       email: Faker::Internet.unique.email(user_name),
-                      actual_password: pwd,
+                      # actual_password: pwd,
                       password: pwd)
   profile = user.build_profile( name: user_name,
                                 height: Faker::Number.between(1, 2.5),
