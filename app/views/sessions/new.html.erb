@@ -15,7 +15,7 @@
               <div class="field-body">
                 <div class="field">
                   <div class="control">
-                    <%= text_field_tag :username, nil, class: "input is-focused #{"is-danger" if flash[:error]}" %>
+                    <%= text_field_tag :username, "user", class: "input is-focused #{"is-danger" if flash[:error]}" %>
                   </div>
                 </div>
               </div>
@@ -27,7 +27,7 @@
               <div class="field-body">
                 <div class="field">
                   <div class="control">
-                    <%= password_field_tag :password, nil, class: "input is-focused #{"is-danger" if flash[:error]}" %>
+                    <%= password_field_tag :password, "passw0rd", class: "input is-focused #{"is-danger" if flash[:error]}" %>
                   </div>
                 </div>
               </div>
